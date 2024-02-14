@@ -23,8 +23,11 @@ export default {
                 store.listFilm = response.data.results;
                 console.log(response.data.results);
             });
+
         },
-    }
+
+
+    },
 };
 
 
@@ -37,15 +40,6 @@ export default {
                 aria-label="Recipient's username" aria-describedby="button-addon2" @keyup.enter="searchFilm()">
             <button class="btn btn-outline-secondary" type="button" id="button-addon2" @click="searchFilm()">Cerca</button>
         </div>
-    </div>
-
-    <div class="container resultSearch">
-        <ul v-for="film in store.listFilm">
-            <li>Il Titolo è {{ film.title }}</li>
-            <li>Il Titolo originale è {{ film.original_title }}</li>
-            <li>La Lingua originale {{ film.original_language }}</li>
-            <li>Il Voto del film è {{ film.vote_average }}</li>
-        </ul>
     </div>
 </template>
 
