@@ -19,13 +19,18 @@ export default {
 
     methods: {
         searchFilm() {
-            axios.get(store.apiUri + this.searchText).then((response) => {
+            axios.get(store.apiUriMovie + this.searchText).then((response) => {
                 store.listFilm = response.data.results;
                 console.log(response.data.results);
             });
-
         },
 
+        searchSerie() {
+            axios.get(store.apiUriSerie + this.searchText).then((response) => {
+                store.listSerie = response.data.results;
+                console.log(response.data.results);
+            });
+        },
 
     },
 };
@@ -35,10 +40,13 @@ export default {
 
 <template>
     <div class="container mt-5 general">
-        <div class="input-group mb-3">
+        <div class="input-group mb-3 px-5">
             <input v-model="searchText" type="text" class="form-control" placeholder="Cerca film per nome..."
-                aria-label="Recipient's username" aria-describedby="button-addon2" @keyup.enter="searchFilm()">
-            <button class="btn btn-outline-secondary" type="button" id="button-addon2" @click="searchFilm()">Cerca</button>
+                aria-label="Recipient's username" aria-describedby="button-addon2"
+                @keyup.enter="searchFilm(), searchSerie()">
+            <button class="btn btn-secondary" type="button" id="button-addon2"
+                @click="searchFilm(), searchSerie()">Cerca</button>
+
         </div>
     </div>
 </template>

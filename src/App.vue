@@ -27,4 +27,8 @@ export default {
 
 <style lang="scss">
 @use './styles/general.scss';
+
+body {
+  background-color: black;
+}
 </style>
