@@ -29,6 +29,6 @@ export default {
 @use './styles/general.scss';
 
 body {
-  background-color: black;
+  background-color: gray;
 }
 </style>
