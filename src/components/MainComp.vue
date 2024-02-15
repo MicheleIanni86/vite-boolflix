@@ -36,6 +36,10 @@ export default {
             };
         },
 
+        voteRound(vote) {
+            return Math.ceil(vote / 2);
+        }
+
     },
 };
 
@@ -57,7 +61,7 @@ export default {
                         <li>Lingua originale: <span> <img :src="changeFlag(film.original_language)"> {{
                             film.original_language
                         }} </span></li>
-                        <li>Voto: {{ film.vote_average / 2 }} </li>
+                        <li>Voto: {{ voteRound(film.vote_average) }} </li>
                     </ul>
                 </div>
             </div>
@@ -73,7 +77,7 @@ export default {
                         <li>Lingua originale: <span> <img :src="changeFlag(serie.original_language)"> {{
                             serie.original_language
                         }} </span></li>
-                        <li>Voto: {{ serie.vote_average / 2 }}</li>
+                        <li>Voto: {{ voteRound(serie.vote_average) }}</li>
                     </ul>
                 </div>
             </div>
