@@ -38,7 +38,8 @@ export default {
 
         voteRound(vote) {
             return Math.ceil(vote / 2);
-        }
+        },
+
 
     },
 };
@@ -61,7 +62,16 @@ export default {
                         <li>Lingua originale: <span> <img :src="changeFlag(film.original_language)"> {{
                             film.original_language
                         }} </span></li>
-                        <li>Voto: {{ voteRound(film.vote_average) }} </li>
+                        <li>Voto:
+                            <i class="fa-solid fa-star" style="color: #FFD43B;"
+                                v-for="n in voteRound(film.vote_average)"></i>
+
+                            <i class="fa-regular fa-star" style="color: #FFD43B;"
+                                v-for="n in 5 - voteRound(film.vote_average)"></i>
+                        </li>
+
+
+
                     </ul>
                 </div>
             </div>
@@ -77,7 +87,12 @@ export default {
                         <li>Lingua originale: <span> <img :src="changeFlag(serie.original_language)"> {{
                             serie.original_language
                         }} </span></li>
-                        <li>Voto: {{ voteRound(serie.vote_average) }}</li>
+                        <li>Voto:
+                            <i class="fa-solid fa-star" style="color: #FFD43B;"
+                                v-for="n in voteRound(serie.vote_average)"></i>
+                            <i class="fa-regular fa-star" style="color: #FFD43B;"
+                                v-for="n in 5 - voteRound(serie.vote_average)"></i>
+                        </li>
                     </ul>
                 </div>
             </div>
