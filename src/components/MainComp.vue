@@ -48,7 +48,7 @@ export default {
 
 
 <template>
-    <div class="container resultSearch" v-if="store.show">
+    <div class=" resultSearch" v-if="store.show">
         <div class="container secondContainer">
 
             <div class="row listTitle">
