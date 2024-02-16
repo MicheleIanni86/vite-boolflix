@@ -11,4 +11,111 @@
 }
 
 
+
 // HEADER----------------------------------------------------------
+
+
+
+
+
+
+
+.resultSearch {
+    height: 85vh;
+    scrollbar-width: none;
+    margin-top: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px 60px;
+    border-radius: 15px;
+    
+}
+
+.secondContainer {
+    height: 97%;
+    overflow: auto;
+    scrollbar-width: none;
+}
+
+.listTitle p:first-child {
+    font-size: 25px;
+    color: white;
+    text-align: center;
+    font-weight: bolder;
+}
+
+ul {
+    font-size: 14px;
+    padding: 15px 10px;
+    list-style: none;
+    text-align: center;
+    overflow: clip;
+
+
+    .title {
+        font-size: 15px;
+        font-weight: bold;
+    }
+
+    .titleOriginal span {
+        font-size: 14px;
+        font-weight: bold;
+
+    }
+
+    .overview {
+        height: 130px;
+        font-size: 13px;
+        font-weight: bold;
+        margin-top: 12px;
+        overflow: auto;
+        scrollbar-width: none;
+    }
+}
+
+.col-5 p {
+    text-align: center;
+    font-weight: bold;
+    color: white;
+}
+
+.cardFilmSerie {
+
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+
+    .imgPoster {
+        height: 300px;
+        border-radius: 6px;
+        display: flex;
+        justify-content: center;
+        overflow: hidden;
+
+        .imageIntern {
+            height: 100%;
+            border-radius: 6px;
+            justify-content: center;
+
+        }
+    }
+
+
+    .infoFilmSerie {
+        width: 200px;
+        height: 300px;
+        border-radius: 6px;
+        display: none;
+    }
+
+}
+
+.cardFilmSerie:hover {
+    .infoFilmSerie {
+        display: flex;
+        justify-content: center;
+    }
+
+    .imageIntern {
+        display: none;
+    }
+}

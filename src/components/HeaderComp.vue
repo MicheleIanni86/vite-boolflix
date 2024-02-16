@@ -39,8 +39,9 @@ export default {
 </script>
 
 <template>
-    <div class="container mt-5 general">
-        <div class="input-group mb-3 px-5">
+    <div class=" general">
+        <img src="../assets/img/boolflixLogo.png" alt="" class="imgLogo">
+        <div class="input-group imputGroup">
             <input v-model="searchText" type="text" class="form-control" placeholder="Cerca film per nome..."
                 aria-label="Recipient's username" aria-describedby="button-addon2"
                 @keyup.enter="searchFilm(), searchSerie()">
@@ -51,4 +52,26 @@ export default {
     </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.general {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    width: 100%;
+    height: 100px;
+    background-color: rgba(0, 0, 0, 0.9);
+    position: sticky;
+    top: 0;
+
+
+    .imgLogo {
+        height: 70px;
+    }
+
+    .imputGroup {
+        width: 30%;
+        height: 40%;
+    }
+}
+</style>

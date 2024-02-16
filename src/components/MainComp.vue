@@ -48,78 +48,80 @@ export default {
 
 <template>
     <div class="container resultSearch">
+        <div class="container secondContainer">
 
-        <div class="row">
+            <div class="row listTitle">
 
-            <p class="mt-3 mb-4">Lista FILM</p>
-            <div class="col-2" v-for="film in store.listFilm">
+                <p class="mt-3 mb-4">MOVIES</p>
+                <div class="col-2" v-for="film in store.listFilm">
 
-                <div class="cardFilmSerie d-flex mb-3">
+                    <div class="cardFilmSerie d-flex mb-3">
 
-                    <div class="imgPoster">
-                        <img :src="imgNotFount(film.poster_path)" alt="" class="imageIntern">
+                        <div class="imgPoster">
+                            <img :src="imgNotFount(film.poster_path)" alt="" class="imageIntern">
+                        </div>
+
+                        <div class="infoFilmSerie">
+
+                            <ul>
+                                <li class="title">{{ film.title }}</li>
+                                <li class="titleOriginal my-1">Titolo originale: <br> <span>{{ film.original_title }}</span>
+                                </li>
+                                <li class="langOriginal my-1">Lingua originale: <span> <img
+                                            :src="changeFlag(film.original_language)"> </span></li>
+                                <li class="starVote">Voto:
+                                    <i class="fa-solid fa-star" style="color: #FFD43B;"
+                                        v-for="n in voteRound(film.vote_average)"></i>
+                                    <i class="fa-regular fa-star" style="color: #FFD43B;"
+                                        v-for="n in 5 - voteRound(film.vote_average)"></i>
+                                </li>
+                                <div class="overview">
+                                    {{ film.overview }}
+                                </div>
+                            </ul>
+                        </div>
+
                     </div>
 
-                    <div class="infoFilmSerie">
-
-                        <ul>
-                            <li class="title">{{ film.title }}</li>
-                            <li class="titleOriginal my-1">Titolo originale: <br> <span>{{ film.original_title }}</span>
-                            </li>
-                            <li class="langOriginal my-1">Lingua originale: <span> <img
-                                        :src="changeFlag(film.original_language)"> </span></li>
-                            <li class="starVote">Voto:
-                                <i class="fa-solid fa-star" style="color: #FFD43B;"
-                                    v-for="n in voteRound(film.vote_average)"></i>
-                                <i class="fa-regular fa-star" style="color: #FFD43B;"
-                                    v-for="n in 5 - voteRound(film.vote_average)"></i>
-                            </li>
-                            <div class="overview">
-                                {{ film.overview }}
-                            </div>
-                        </ul>
-                    </div>
-
-                </div>
-
-
-            </div>
-        </div>
-
-        <div class="row">
-            <p class="mt-3 mb-4">Lista SERIE</p>
-            <div class="col-2" v-for="serie in store.listSerie">
-
-                <div class="cardFilmSerie d-flex mb-3">
-
-                    <div class="imgPoster">
-                        <img :src="imgNotFount(serie.poster_path)" alt="" class="imageIntern">
-                    </div>
-
-                    <div class="infoFilmSerie">
-
-                        <ul>
-                            <li class="title"> {{ serie.name }} </li>
-                            <li class="titleOriginal my-1">Titolo originale: <br> <span>{{ serie.original_name }}</span>
-                            </li>
-                            <li class="langOriginal my-1">Lingua originale: <span> <img
-                                        :src="changeFlag(serie.original_language)"></span></li>
-                            <li class="starVote">Voto:
-                                <i class="fa-solid fa-star" style="color: #FFD43B;"
-                                    v-for="n in voteRound(serie.vote_average)"></i>
-                                <i class="fa-regular fa-star" style="color: #FFD43B;"
-                                    v-for="n in 5 - voteRound(serie.vote_average)"></i>
-                            </li>
-                            <div class="overview">
-                                {{ serie.overview }}
-                            </div>
-                        </ul>
-                    </div>
 
                 </div>
             </div>
 
+            <div class="row listTitle">
+                <p class="mt-3 mb-4">SERIES</p>
+                <div class="col-2" v-for="serie in store.listSerie">
 
+                    <div class="cardFilmSerie d-flex mb-3">
+
+                        <div class="imgPoster">
+                            <img :src="imgNotFount(serie.poster_path)" alt="" class="imageIntern">
+                        </div>
+
+                        <div class="infoFilmSerie">
+
+                            <ul>
+                                <li class="title"> {{ serie.name }} </li>
+                                <li class="titleOriginal my-1">Titolo originale: <br> <span>{{ serie.original_name }}</span>
+                                </li>
+                                <li class="langOriginal my-1">Lingua originale: <span> <img
+                                            :src="changeFlag(serie.original_language)"></span></li>
+                                <li class="starVote">Voto:
+                                    <i class="fa-solid fa-star" style="color: #FFD43B;"
+                                        v-for="n in voteRound(serie.vote_average)"></i>
+                                    <i class="fa-regular fa-star" style="color: #FFD43B;"
+                                        v-for="n in 5 - voteRound(serie.vote_average)"></i>
+                                </li>
+                                <div class="overview">
+                                    {{ serie.overview }}
+                                </div>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
         </div>
     </div>
 </template>
@@ -127,79 +129,4 @@ export default {
 
 
 
-<style lang="scss" scoped>
-ul {
-    font-size: 14px;
-    padding: 15px 10px;
-    list-style: none;
-    text-align: center;
-    overflow: clip;
-
-
-    .title {
-        font-size: 15px;
-        font-weight: bold;
-    }
-
-    .titleOriginal span {
-        font-size: 15px;
-        font-weight: bold;
-
-    }
-
-    .overview {
-        height: 130px;
-        font-size: 13;
-        margin-top: 12px;
-        overflow: auto;
-        scrollbar-width: none;
-    }
-}
-
-.col-5 p {
-    text-align: center;
-    font-weight: bold;
-    color: white;
-}
-
-.cardFilmSerie {
-
-    border-radius: 10px;
-    background-color: lightgrey;
-
-    .imgPoster {
-        height: 300px;
-        border-radius: 6px;
-        display: flex;
-        justify-content: center;
-        overflow: hidden;
-
-        .imageIntern {
-            height: 100%;
-            border-radius: 6px;
-            justify-content: center;
-
-        }
-    }
-
-
-    .infoFilmSerie {
-        width: 200px;
-        height: 300px;
-        border-radius: 6px;
-        display: none;
-    }
-
-}
-
-.cardFilmSerie:hover {
-    .infoFilmSerie {
-        display: flex;
-        justify-content: center;
-    }
-
-    .imageIntern {
-        display: none;
-    }
-}
-</style>
+<style lang="scss" scoped></style>

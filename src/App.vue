@@ -29,6 +29,12 @@ export default {
 @use './styles/general.scss';
 
 body {
-  background-color: gray;
+  width: 100%;
+  height: 100vh;
+  background-image: url(../src/assets/img/sfondoBoolFlix.webp);
+  background-attachment: fixed;
+  background-size: cover;
+  scrollbar-width: none;
+
 }
 </style>
