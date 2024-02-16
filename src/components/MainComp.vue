@@ -6,7 +6,8 @@ export default {
         return {
             store,
             firstPartURl: "https://image.tmdb.org/t/p/w200",
-            imageNotFound: "../src/assets/img/icon-image-not-found-free-vector.jpg"
+            imageNotFound: "../src/assets/img/icon-image-not-found-free-vector.jpg",
+
         };
     },
 
@@ -47,7 +48,7 @@ export default {
 
 
 <template>
-    <div class="container resultSearch">
+    <div class="container resultSearch" v-if="store.show">
         <div class="container secondContainer">
 
             <div class="row listTitle">
@@ -124,9 +125,23 @@ export default {
             </div>
         </div>
     </div>
+    <div class="contLogoStand" v-else>
+        <img class="logoStand" src="../assets/img/boolflixLogo.png" alt="">
+    </div>
 </template>
 
 
 
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.contLogoStand {
+    margin-top: 100px;
+    text-align: center;
+
+}
+
+.logoStand {
+    width: 80%;
+    filter: drop-shadow(0 0 3rem black);
+}
+</style>

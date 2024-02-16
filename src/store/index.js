@@ -4,4 +4,5 @@ export const store = reactive({
     apiUriSerie: 'https://api.themoviedb.org/3/search/tv?api_key=a91f8f63b578bae33d184922b6d56a38&query=',
     listFilm: [],
     listSerie: [],
+    show: false,
 });

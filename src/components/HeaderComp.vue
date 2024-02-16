@@ -7,6 +7,7 @@ export default {
         return {
             store,
             searchText: '',
+
         };
     },
 
@@ -19,6 +20,7 @@ export default {
 
     methods: {
         searchFilm() {
+            store.show = true;
             axios.get(store.apiUriMovie + this.searchText).then((response) => {
                 store.listFilm = response.data.results;
                 console.log(response.data.results);
@@ -26,6 +28,7 @@ export default {
         },
 
         searchSerie() {
+            store.show = true;
             axios.get(store.apiUriSerie + this.searchText).then((response) => {
                 store.listSerie = response.data.results;
                 console.log(response.data.results);
@@ -42,9 +45,9 @@ export default {
     <div class=" general">
         <img src="../assets/img/boolflixLogo.png" alt="" class="imgLogo">
         <div class="input-group imputGroup">
-            <input v-model="searchText" type="text" class="form-control" placeholder="Cerca film per nome..."
-                aria-label="Recipient's username" aria-describedby="button-addon2"
-                @keyup.enter="searchFilm(), searchSerie()">
+            <input v-model="searchText" type="text" class="form-control"
+                placeholder="Cerca Film o Serie che ti interessano..." aria-label="Recipient's username"
+                aria-describedby="button-addon2" @keyup.enter="searchFilm(), searchSerie()">
             <button class="btn btn-secondary" type="button" id="button-addon2"
                 @click="searchFilm(), searchSerie()">Cerca</button>
 
